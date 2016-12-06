@@ -1,7 +1,7 @@
 ---
 date: 2016-07-27 16:43
 status: public
-
+title: js语言精粹笔记
 ---
 
 读书笔记

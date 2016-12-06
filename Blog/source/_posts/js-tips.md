@@ -1,7 +1,7 @@
 ---
 date: 2016-08-15 14:34
 status: public
-
+title: js tips
 ---
 
 ##事件操作

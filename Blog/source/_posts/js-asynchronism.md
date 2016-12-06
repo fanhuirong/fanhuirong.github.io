@@ -1,6 +1,7 @@
 ---
 date: 2016-07-29 10:54
 status: public
+title: js异步编程笔记
 
 ---
 

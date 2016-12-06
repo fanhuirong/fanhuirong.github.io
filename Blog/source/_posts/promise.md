@@ -1,5 +1,9 @@
-Date: 2016-10-11 10:10
 
+---
+date: 2016-10-11 10:10
+status: public
+title: Promise
+---
 ###Promise
 创建流程
 1、new Promise(fn) 返回一个promise对象

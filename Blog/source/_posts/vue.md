@@ -1,7 +1,7 @@
 ---
 date: 2016-11-08 20:34
 status: public
-title: 2016-11-08
+title: vue笔记
 ---
 
 #vue
