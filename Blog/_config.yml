@@ -68,4 +68,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  responsitory: https://github.com/fanhuirong/fanhuirong.github.io.git
+  branch: master
