@@ -1,6 +1,5 @@
 ---
 date: 2016-04-03 14:17
-status: public
 title: 元素拖拽
 ---
 

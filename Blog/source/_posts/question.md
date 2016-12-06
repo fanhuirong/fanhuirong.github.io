@@ -1,6 +1,5 @@
 ---
 date: 2016-10-28 09:48
-status: public
 title: Questions
 ---
 
