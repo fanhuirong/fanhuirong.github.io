@@ -5,7 +5,7 @@ title: js语言精粹笔记
 
 读书笔记
 js语言精粹
-
+js五种简单类型  数字、字符串、布尔、undefined、null
 ###第三章 对象
 检索 : [ ] 、.
 引用：对象通过引用传递，永远不会被复制
@@ -24,7 +24,7 @@ if(typeof a[item]!=='function'){
 
 ![](~/20-21-39.jpg)
 删除：删除对象属性 delete 不会触及原型链
-减少全局变量污染：
+减少全局变量污染：                                                                                                                                                                                                                                                                                          
 1. 使用唯一的全局变量
 2. 闭包
 
@@ -34,10 +34,10 @@ if(typeof a[item]!=='function'){
 除了声明时定义的**形参**，函数还接受两个附加参数 **this**、** arguments**
 this的值---》取决于调用模式
 四种调用模式 
-1.方法调用
+1.方法调用 对象
 函数保存为对象的属性---》叫方法
 方法被调用，this绑定在 该对象 
-2.函数调用   that
+2.函数调用  window  that
 this绑定到全局对象   一个错误
 本应让this绑定到外部函数的this变量上
 解决：that
@@ -49,6 +49,8 @@ var myOb ={
 myOb.double =function(){
     var that =this;
     var helper = function(){
+     console.log(this) // window
+	 console.log(that) //myOb
      that.value = that.value+1
     }
 helper();//函数形式调用
@@ -57,23 +59,22 @@ myOb.double(); //方法形式调用
 console.log(myOb.value);
 ```
 
-![](~/21-35-14.jpg)
 
-3.构造器调用 
+3.构造器调用    ？？？
 函数前带new---》创建一个连接到函数prototype的对象，this绑定到这个新对象
 ```js
 var  Q =function(str){
     this.status = str
 }
 Q.prototype.get_status = function(){
-return this.status
+	return this.status
 }
 var myQ= new Q('aaaa')
 console.log(myQ.get_status())
 ```
 //Q 构造器函数  一般构造器函数大写开头
-![](~/21-44-03.jpg)
-4.apply调用
+
+4.apply、call调用  ？？？
 
 [apply](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
 ps: arguments 实际参数，parameters形式参数
@@ -81,10 +82,11 @@ arguments 类似数组，只拥有length属性，没有任何数组的方法
 
 作用域：内部函数可以访问定义他们的外部函数的参数和变量（除了this和arguments）
 内部函数的生命周期比外部函数长
-闭包
+闭包：
+
 回调 收到响应再被调用
 模块化
-一个定义了死又变了和函数的函数,利用闭包创建可以访问私有变量和函数的特权函数
+一个定义了私有变量和函数的函数,利用闭包创建可以访问私有变量和函数的特权函数
 
 级联：单独一条语句中依次调用同一对象的不同方法
 因为这些方法返回this，因此能够启用级联
@@ -93,9 +95,9 @@ arguments 类似数组，只拥有length属性，没有任何数组的方法
 通过创建保存在原始函数和要被套用的参数的闭包来工作
 >curry的概念：只传递给函数部分参数，调用它之后返回一个函数去处理剩下的参数；
 
-
-![](~/20-49-47.jpg)
 [不可或缺的柯里化](https://zhuanlan.zhihu.com/p/20787973)
+
+
 ###第五章 继承
 js不能让对象从其他对象继承，插入了一个多余的间接层--->构造器函数
 一个函数对象被创建-->Function构造器产生的函数对象会运行 this.prototype = {construtor:this};
