@@ -7,7 +7,7 @@ title: vue笔记
 ##入门
 ###开始
 各种死于安装webpack  orz
-换国内的cnpm
+于是换国内的cnpm
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install webpack -g
@@ -25,7 +25,7 @@ npm install # 尽量用npm装依赖 cnpm会缺少一些包
 npm run dev
 ```
 
-![](~/23-00-51.jpg)
+
 
 ###Tip
 1. 一个组件下只能有一个并列的 div
@@ -89,8 +89,12 @@ npm run build
 ```
 [Vue2.0 新手完全填坑攻略——从环境搭建到发布](http://www.jianshu.com/p/5ba253651c3b)
 
+
+
 ##一个todoist应用
 就从做一个todoist应用开始吧
+
+
 ###基础 组件选项
 data
 methods
@@ -105,8 +109,8 @@ a: '<span>aaaaaa</span>'
 ```
 v-if（不渲染） v-show（display：none） 控制模块隐藏
 v-for
-v-on:click 简写 @-click
-v-bind 属性绑定
+v-on:click 简写 @click
+v-bind 属性绑定 简写 :class
 
 ###es6
 import、export 是es6语法 
@@ -137,3 +141,51 @@ $.emit
 $.dispatch 需要注册events
 $.broadcast
 
+###进化
+利用计算属性来修改todoist
+####slot
+####event dispatcher
+
+```js
+window.Event = new Vue();
+Vue.component('xxxx',{
+  data:'xxxx',
+  methods:{
+    onClick(){
+      Event.$emit('applied');
+  }
+  }
+})
+```
+##工具神马的
+###vue devtools
+[vue devtools](https://github.com/vuejs/vue-devtools)
+
+### 用js获取vue元素的内容并更改
+```js
+var app = new Vue({
+  el: '#root',
+  data: {
+    names:['joe','mary','jack']
+  },
+  mounted (){
+    document.querySelector('#button').addEventListener('click',()=>{
+    let name = document.querySelector('#input')
+    app.names.push(name.value);
+    name.value = ''
+    })
+  }
+
+})
+
+//等价于写到mounted里dom操作
+document.querySelector('#button').addEventListener('click',()=>{
+  let name = document.querySelector('#input')
+  app.names.push(name.value);
+  name.value = ''
+})
+
+```
+
+[五个vue2免费教程](https://gold.xitu.io/post/584cc93b8e450a006ac2196d)
+[Vue + Webpack 开发实践](https://cinwell.com/post/vue-webpack/)
