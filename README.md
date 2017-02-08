@@ -8,7 +8,7 @@
 4. 在本地fanhuirong.github.io文件夹下新建空文件夹，Git bash依次执行npm install hexo、hexo init、npm install 和 npm install hexo-deployer-git（此时当前分支应显示为hexo）;
 5. 修改_config.yml中的deploy参数，分支应为master；
 6. 依次执行git add .、git commit -m “…”、git push origin hexo提交网站相关的文件；
-7. 执行hexo g -d生成网站并部署到GitHub上。
+7. 执行hexo g -d生成网站并部署到GitHub上（在Blog文件夹下）。
 
 更换电脑
 克隆仓库（默认分支为hexo）；
@@ -17,7 +17,7 @@
 切换主题
 `cd fanhuirong.github.io/blog` 
 `git clone https://github.com/iissnan/hexo-theme-next themes/next`
-
+修改配置文件
 
 [nexT主题使用文档 ](http://theme-next.iissnan.com/getting-started.html)
 [GitHub Pages + Hexo搭建博客](http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more)

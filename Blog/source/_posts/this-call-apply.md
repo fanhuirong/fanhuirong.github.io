@@ -3,10 +3,10 @@ date: 2016-03-29 21:24
 title: this call apply
 ---
 
-##this
-###全局 window
+## this
+### 全局 window
 在全局运行上下文中（在任何函数体外部），this 指代全局对象，无论是否在严格模式下。
-###函数调用 window
+### 函数调用 window
 非严格模式 window
 ```js
 function f1 () {
@@ -22,8 +22,8 @@ function f2 () {
 }
 console.log(f1() === undefined);//true
 ```
-###对象方法中
-####对象里有方法 指向调用该方法的对象
+### 对象方法中
+#### 对象里有方法 指向调用该方法的对象
 当以对象里的方法的方式调用函数时，它们的 this 是调用该函数的对象.
 创建字面量对象o， o.f() 被调用时，函数内的this将绑定到o对象。
 ```js
@@ -36,7 +36,7 @@ var o = {
 
 console.log(o.f()); // logs 37
 ```
-#####对象里无方法
+##### 对象里无方法
 首先定义函数然后再将其附属到o.f。这样做this的行为也一致：
 ```js
 var o = {
@@ -50,7 +50,7 @@ o.f = independent;
 console.log(o.f()); // 37
 ```
 this的值只与函数 f 作为 o 的成员被调用有关系。
-####原型链中的this
+#### 原型链中的this
 如果该方法存在于一个对象的原型链上，那么this指向的是调用这个方法的对象，表现得好像是这个方法就存在于这个对象上一样。
 ```js
 var o = {
@@ -68,7 +68,7 @@ p 的原型是 o，调用 f() 的时候是调用了 o 上的方法 f()。
 查找过程从p.f开始，所以this指向p。
 
 
-###构造函数中的this  指向新创建的对象。
+### 构造函数中的this  指向新创建的对象。
 一个函数被作为一个构造函数来使用（使用new关键字），它的this与即将被创建的新对象绑定。
 ```js
 function C(){
@@ -87,7 +87,7 @@ console.log(o.a); // logs 38
 ```
 在调用构造函数的过程中，手动的设置了返回对象，与this绑定的默认对象被取消。
 
-###call、apply  this指向函数调用的第一个参数。】
+### call、apply  this指向函数调用的第一个参数。】
 apply 参数以数组的形式存在。
 call 参数以列表形式存在。
 当一个函数的函数体中使用了this关键字时，通过所有函数都从Function对象的原型中继承的call()方法和apply()方法调用时，它的值可以绑定到一个指定的对象上。
@@ -108,7 +108,7 @@ function bar() {
 bar.call(7); // [object Number]  7 通过new Number(7)被转换为对象
 ```
 
-###bind方法与this
+### bind方法与this
 this将永久地被绑定到了bind的第一个参数，无论这个函数是如何被调用的。
 ```js
 function f(){

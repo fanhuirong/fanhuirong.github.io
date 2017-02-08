@@ -3,9 +3,9 @@ date: 2016-11-08 20:34
 title: vue笔记
 ---
 
-#vue
-##入门
-###开始
+# vue
+## 入门
+### 开始
 各种死于安装webpack  orz
 于是换国内的cnpm
 ```
@@ -27,11 +27,11 @@ npm run dev
 
 
 
-###Tip
+### Tip
 1. 一个组件下只能有一个并列的 div
 2. 数据要写在 return 里面
 
-###组件
+### 组件
 1. 引入App.vue中 `import firstcomponent from './component/firstcomponent.vue'`
 2. 注册 
 ```
@@ -52,7 +52,7 @@ export default {
   </div>
 </template>
 ```
-###路由 vue-router
+### 路由 vue-router
 `cnpm install vue-router --save`
 1. 配置webpack.config.js
 2. 修改main.js 引入vue-router
@@ -72,7 +72,7 @@ template里增加
     </ul>
     <router-view class="view"></router-view>
 ```
-###动态数据 vue-resource
+### 动态数据 vue-resource
 `cnpm install vue-resource --save`
 ###编译
 `npm run build`
@@ -91,11 +91,11 @@ npm run build
 
 
 
-##一个todoist应用
+## 一个todoist应用
 就从做一个todoist应用开始吧
 
 
-###基础 组件选项
+### 基础 组件选项
 data
 methods
 watch 监听方法
@@ -112,7 +112,7 @@ v-for
 v-on:click 简写 @click
 v-bind 属性绑定 简写 :class
 
-###es6
+### es6
 import、export 是es6语法 
 ```js
 data:function(){
@@ -123,17 +123,17 @@ data(){
 return {a:'111'}
 }
 ```  
-###localstorage存储
+### localstorage存储
 window.localStorage
 store.js 用于fetch save
 
 ![](~/21-12-25.jpg)
 
 watch items的变化使用handler 设置deep 
-###组件通信
+### 组件通信
 使用组件记得要注册
 
-####父-子 props
+#### 父-子 props
 ![](~/21-26-32.jpg)
 ####子-父
 $.emit
@@ -141,10 +141,10 @@ $.emit
 $.dispatch 需要注册events
 $.broadcast
 
-###进化
+### 进化
 利用计算属性来修改todoist
-####slot
-####event dispatcher
+#### slot
+#### event dispatcher
 
 ```js
 window.Event = new Vue();
@@ -157,8 +157,8 @@ Vue.component('xxxx',{
   }
 })
 ```
-##工具神马的
-###vue devtools
+## 工具神马的
+### vue devtools
 [vue devtools](https://github.com/vuejs/vue-devtools)
 
 ### 用js获取vue元素的内容并更改

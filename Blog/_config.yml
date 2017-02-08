@@ -7,7 +7,7 @@ title: 困困的学习笔记
 subtitle:
 description:
 author: FanHuirong
-language:
+language: zh-Hans
 timezone:
 
 # URL
@@ -64,6 +64,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
