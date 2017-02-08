@@ -99,7 +99,7 @@ npm run build
 data
 methods
 watch 监听方法
-v-text v-html  { { } }
+v-text v-html  
 ```
 <p>{{a}}</p>// <span>aaaaaa</span>
 <p v-html="a"></p>//<span>aaaaaa</span>
