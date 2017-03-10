@@ -6,8 +6,8 @@ title: vue笔记
 # vue
 ## 入门
 ### 开始
-各种死于安装webpack  orz
-于是换国内的cnpm
+因为需要将现有项目用vue重写，所以就去学习了中文文档超级详细的vue
+搭建环境各种死于安装webpack  orz 对于墙的存在真是无能为力啊，于是换国内的cnpm进行安装
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install webpack -g
@@ -27,7 +27,7 @@ npm run dev
 
 
 
-### Tip
+#### Tip
 1. 一个组件下只能有一个并列的 div
 2. 数据要写在 return 里面
 
@@ -44,7 +44,7 @@ export default {
   components: { firstcomponent } //增加这行
 }
 ```
-3. 使用 在<template></template>内加上
+3. 使用 在<template></template>内加上组件即可
 ```
 <template>
   <div id="app">
@@ -72,28 +72,23 @@ template里增加
     </ul>
     <router-view class="view"></router-view>
 ```
+[vue-router文档](http://router.vuejs.org/zh-cn/)
+[vue-router 60分钟入门](http://www.cnblogs.com/keepfool/p/5690366.html)
 ### 动态数据 vue-resource
 `cnpm install vue-resource --save`
-###编译
+### 编译
 `npm run build`
 把 index.html 和整个 dist 目录丢到服务器就可以了
-###tip
-```
-vue init webpack-simple firstVue
 
-cd firstVue
-npm install # 尽量用npm装依赖 cnpm会缺少一些包 
-
-npm run dev
-npm run build
-```
 [Vue2.0 新手完全填坑攻略——从环境搭建到发布](http://www.jianshu.com/p/5ba253651c3b)
 
+### vuex
+vuex or 全局事件总线
 
-
+[vuex文档](https://vuex.vuejs.org/zh-cn/intro.html)
+[用vue构建一个笔记应用](https://segmentfault.com/a/1190000005015164)
 ## 一个todoist应用
-就从做一个todoist应用开始吧
-
+那就从做一个todoist应用开始吧
 
 ### 基础 组件选项
 data
@@ -127,14 +122,11 @@ return {a:'111'}
 window.localStorage
 store.js 用于fetch save
 
-![](~/21-12-25.jpg)
-
 watch items的变化使用handler 设置deep 
 ### 组件通信
 使用组件记得要注册
 
 #### 父-子 props
-![](~/21-26-32.jpg)
 ####子-父
 $.emit
 //下面两种vue2中取消了
@@ -189,3 +181,32 @@ document.querySelector('#button').addEventListener('click',()=>{
 
 [五个vue2免费教程](https://gold.xitu.io/post/584cc93b8e450a006ac2196d)
 [Vue + Webpack 开发实践](https://cinwell.com/post/vue-webpack/)
+
+### questions
+#### 修改title
+[vue2.0一起在懵逼的海洋里越陷越深（六）](http://leenty.com/2016/12/18/vue2-6/)
+
+####按需加载
+
+[vue按需加载](https://www.zhihu.com/question/41147233)
+[vue中，组件如何做到按需加载？](https://www.zhihu.com/question/54111689)
+[vue-router如何配置](http://zakwu.me/2016/09/18/vue-routerpei-zhi/)
+[在webpack中使用code splitting实现按需加载](http://www.alloyteam.com/2016/02/code-split-by-routes/)
+[webpack指南](https://www.gitbook.com/book/toobug/webpack-guide)
+[如何配置webpack的code-splitting使之不反复打包第三方库？](https://www.zhihu.com/question/31352596/answer/127369675?from=profile_answer_card)
+
+[webpack CommonsChunkPlugin详细教程](https://segmentfault.com/a/1190000006808865)
+
+#### require
+关于require('moment')是如何找到对应文件的
+reqire会找到node_modules 然后找到moment文件 在文件下找package.json 然后找到main看main对应的js是哪个，然后进行加载
+
+#### lazy load
+[menu设置vue-router时，路由懒加载组件时在第二次路由时组件渲染失败 ](https://github.com/ElemeFE/element/issues/2022)
+
+### modal
+[modal](http://cn.vuejs.org/v2/examples/modal.html)
+
+[vue源码解析](https://github.com/youngwind/blog)
+
+[vue源码解析](https://wakeupmypig.github.io/jw_blog/html/Vue.js/Vue%E6%8C%87%E4%BB%A4.html)

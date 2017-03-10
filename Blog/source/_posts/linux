@@ -1,0 +1,9 @@
+# linux
+
+### chmod 700
+linux的权限 rwe 
+-rw-rw-r-- 第一个表示文件的owner能够读写，第二个表示和owner同一个group的可以读写，第三个表示任何人都能读
+一般执行ssh相关命令对权限要求比较高 如果报错bad owner
+执行chmod700 即 110-000-000 修改读写权限 改成最高级别的即可
+
+### chowner

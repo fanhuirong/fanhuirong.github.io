@@ -1,3 +1,4 @@
+
 ---
 date: 2016-10-28 09:48
 title: Questions
@@ -65,7 +66,7 @@ element.addEventListener('click', function() {
 user.greeting = user.greeting.bind(user);
 element.addEventListener('click', user.greeting);
 
-```
+```参考
 [事件委托](http://yujiangshui.com/javascript-event/)
 ###for in 、for of等
 方法	适用范围	描述
@@ -136,8 +137,8 @@ img是行内元素！！！
 DOCTYPE**不存在**或**格式不正确**会导致文档以混杂模式呈现。
 
 ###行内、块级、空元素
-（1）行内元素有：a span  input select strong（强调的语气）
-（2）块级元素有：div img  ul ol li dl dt dd h1 h2 h3 h4… p
+（1）行内元素有：a span img input select strong（强调的语气）
+（2）块级元素有：div p  ul ol li dl dt dd h1 h2 h3 h4… 
 （3）常见的空元素：br  hr img input link  meta
 
 ###浏览器内核
