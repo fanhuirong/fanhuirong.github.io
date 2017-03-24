@@ -210,3 +210,77 @@ reqire会找到node_modules 然后找到moment文件 在文件下找package.json
 [vue源码解析](https://github.com/youngwind/blog)
 
 [vue源码解析](https://wakeupmypig.github.io/jw_blog/html/Vue.js/Vue%E6%8C%87%E4%BB%A4.html)
+
+[webpack使用优化](http://www.alloyteam.com/2016/01/webpack-use-optimization/)
+
+
+## html-webpack-plugin
+```
+npm install html-webpack-plugin --save-dev
+
+//webpack.config.js
+var webpack=require('webpack');
+//引用插件
+var HtmlwebpackPlugin = require('html-webpack-plugin');
+
+plugins:[
+    new HtmlwebpackPlugin({
+          title:'rd平台',
+          template: 'entries/index.html', // 源模板文件
+          filename: './index.html', // 输出文件【注意：这里的根路径是module.exports.output.path】
+          showErrors: true,
+          inject: 'body',
+          chunks: ["common",'index']
+      }),
+]
+
+```
+[webpack 插件之html-webpack-plugin](http://www.jianshu.com/p/c0e1fc31940b)
+[html-webpack-plugin详解](http://www.cnblogs.com/wonyun/p/6030090.html)
+
+## 热更新
+webpack开启热更新 network里会有websocket 并且一直不关闭
+
+[热更新原理](http://www.jianshu.com/p/f4c7254f4e24)
+[【翻译】Webpack——令人困惑的地方](https://github.com/chemdemo/chemdemo.github.io/issues/13)
+
+## 拼接链接字符串
+```
+<a :href="'/dbtopool/'+dbtype+'/'+filterCluster"> {{filterCluster}} </a>
+```
+
+## debug
+
+```bash
+## npm 最上面是错误的根源
+Error: Cannot find module 'webpack/lib/node/NodeTemplatePlugin'
+    at Function.Module._resolveFilename (module.js:470:15)
+    at Function.Module._load (module.js:418:25)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/home/huirong/db-in-box/node_modules/html-webpack-plugin/lib/compiler.js:11:26)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/home/huirong/db-in-box/node_modules/html-webpack-plugin/index.js:7:21)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10) # 
+    at Module.load (module.js:488:32) # module在load 488行的时候出错
+
+# py 最下面是错误的根源 
+Traceback (most recent call last):
+  File "C:/Users/hufan/PycharmProjects/scrapy/test.py", line 10, in <module>
+    c()
+  File "C:/Users/hufan/PycharmProjects/scrapy/test.py", line 8, in c
+    b()
+  File "C:/Users/hufan/PycharmProjects/scrapy/test.py", line 5, in b
+    a()
+  File "C:/Users/hufan/PycharmProjects/scrapy/test.py", line 2, in a
+    print 1/0
+ZeroDivisionError: integer division or modulo by zero
+
+```

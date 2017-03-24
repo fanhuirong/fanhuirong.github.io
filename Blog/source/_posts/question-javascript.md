@@ -130,10 +130,65 @@ eg4：
     }
     t('toby');
 ```
+作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。
+
 [套公式让你不再害怕JavaScript中的作用域](http://www.jianshu.com/p/43bf4f2e0d57)
 ## 原型链
+>
+typeof obj: 返回obj对象的类型的全小写的字符串,只针对基本类型有效,如果作用在引用类型上,都返回object字符串,无法判断变量的真实类型
+
+obj instanceof Type : 判断obj是否属于Type类型,返回boolean,只能作用在引用类型上,如果作用在基本类型上,都是返回false的结果.
+
+__proto__（隐式原型）
+prototype（显式原型）
+隐式原型指向创建这个对象的函数(constructor)的prototype
+__proto__: 这个属性是JS对象上的隐藏属性,这个属性指向的是该对象对应类型的prototype对象
+普通对象没有prototype,但有_proto_属性。
+
+>Js中一切皆为对象（Object），但是Js中并没有类（class）；Js是基于原型（prototype-based）来实现的面向对象（OOP）的编程范式的，但并不是所有的对象都拥有prototype这一属性：prototype是每个function定义时自带的属性
+
+
+JS中对象被创建的方式 （1）对象字面量的方式 （2）new 的方式 （3）ES5中的Object.create()
+
 [套公式让你不再害怕JavaScript中的原型链](http://www.jianshu.com/p/a81692ad5b5d)
 
+## 构造函数
+>在构造函数内部 - 也就是被调用的函数内 - this 指向新创建的对象 Object。 这个新创建的对象的 prototype 被指向到构造函数的 prototype。
+```js
+function Foo() {
+    this.bla = 1;
+}
+
+Foo.prototype.test = function() {
+    console.log(this.bla);
+};
+
+var test = new Foo();
+console.log(test.prototype) //Object  
+```
+
+## == && === 的区别
+== 会进行强制类型转换，可能带来问题
+=== 也就是所谓的严格比较，关键的区别在于=== 会同时比较类型与值，而不是仅比较值。
+
+// Example of comparators
+0 == false; // true
+0 === false; // false
+
+2 == '2'; // true
+2 === '2'; // false
+
+>比较对象
+虽然 == 和 === 操作符都是等于操作符，但是当其中有一个操作数为对象时，行为就不同了。
+{} === {};                   // false
+new String('foo') === 'foo'; // false
+new Number(10) === 10;       // false
+var foo = {};
+foo === foo;                 // true
+这里等于操作符比较的不是值是否相等，而是是否属于同一个身份；也就是说，只有对象的同一个实例才被认为是相等的。 这有点像 Python 中的 is 和 C 中的指针比较。
+
+
+[js秘密花园--等于操作符](https://bonsaiden.github.io/JavaScript-Garden/zh/#types.equality)
 ## this
 setTimeout
 ```JS
@@ -271,7 +326,8 @@ xw.say.bind(xh)("实验小学","六年级");
 ## querySelector 
 
 ## let var区别？
-let声明的变量拥有块级作用域。 
+尽管 JavaScript 支持一对花括号创建的代码段，但是并不支持块级作用域； 而仅仅支持 函数作用域。
+ES6新增的let  let声明的变量拥有块级作用域。 
 let声明的全局变量不是全局对象的属性。。
 形如for (let x...)的循环在每次迭代时都为x创建新的绑定。
 [var、let、const 区别？](http://www.jianshu.com/p/4e9cd99ecbf5)
@@ -298,6 +354,35 @@ setTimeout的this会指向window
 ## HTTPcode
 403 why
 304 过程
+
+    100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息
+
+    200  OK   正常返回信息
+
+    201  Created  请求成功并且服务器创建了新的资源
+
+    202  Accepted  服务器已接受请求，但尚未处理
+
+    301  Moved Permanently  请求的网页已永久移动到新位置。
+
+    302 Found  临时性重定向。
+
+    303 See Other  临时性重定向，且总是使用 GET 请求新的 URI。
+
+    304  Not Modified  自从上次请求后，请求的网页未修改过。
+
+
+    400 Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。
+
+    401 Unauthorized  请求未授权。
+
+    403 Forbidden  禁止访问。
+
+    404 Not Found  找不到如何与 URI 相匹配的资源。
+
+    500 Internal Server Error  最常见的服务器端错误。
+
+    503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）
 
 ## Network 能看到的问题
 http 时间 和页面时间 以哪个为准 ？  
@@ -447,6 +532,13 @@ console.log(regex.exec(str))
             console.log(JSON.stringify(showTree))
         }
 ```
+
+
+
+## 发布-订阅者模式 
+
+[理解 javascript 观察者模式 (订阅者与发布者)](https://juejin.im/entry/580b5553570c350068e6c2d6)
+
 单向链表 是啥数据结构
 二叉树
 TCP
@@ -456,3 +548,147 @@ vue 机制
 前端模块化
 
 webserver node 控制台 技术输出 
+
+session 服务器和客户端 ？？？
+缓存相关的协议头
+网络攻击
+装饰者模式
+
+同源 相同的协议 域名 端口号
+禁止跨域：防止不同域名的网页之间共享 cookie
+跨域的方式 
+jsonp 动态插入script
+在js中，我们直接用XMLHttpRequest请求不同域上的数据时，是不可以的。但是，在页面上引入不同域上的js脚本文件却是可以的，jsonp正是利用这个特性来实现的。
+jsonp 的本质其实是请求一段 js 代码，是对静态文件资源的请求，所以并不遵循同源策略。但是因为是对静态文件资源的请求，所以只能支持 GET请求，对于其他方法没有办法支持。
+document.domain 子和父属于同一个基础域名 设置成同一个基础域名
+window.name 在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的
+window.postMessage
+CORS
+[js跨域](http://www.cnblogs.com/2050/p/3191744.html)
+get post区别
+
+拥塞机制
+
+
+三次握手
+SYN  发送端发出同步信号给接收端 客户端to服务器
+SYN/ACK 接收端收到SYN报文并给发送端发出SYN/ACK报文
+ACK 发送端发出确认报文告诉接收端我
+若在握手过程中某个阶段莫名中断，TCP协议会再次以相同的顺序发送相同的数据包。
+
+客户端 —> 服务器，客户端请求连接
+服务器 —> 客户端，服务器确认连接信息
+客户端 —> 服务器，客户端确认连接信息，开始连接
+
+四次挥手
+FIN 主to被 告诉对方我要关闭数据传送
+ACK 被to主 发送确认信号 表示自己收到
+FIN 被to主 告诉对方我也不会再发送数据了
+ACK 主to被 发送确认信号 表示自己收到
+A —> B，A请求断开连接
+B —> A，B确认请求并准备断开连接
+B —> A，B关闭连接并通知A
+A —> B，A确认关闭
+
+
+TCP 面向连接 可靠
+UDP 面向无连接 不可靠
+
+xss 
+CSRF 验证码 
+XSS是获取信息，不需要提前知道其他用户页面的代码和数据包。CSRF是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。
+
+WebSocket是Web应用程序的传输协议，它提供了双向的，按序到达的数据流。
+他是一个HTML5协议，WebSocket的连接是持久的，他通过在客户端和服务器之间保持双工连接，服务器的更新可以被及时推送给客户端，而不需要客户端以一定时间间隔去轮询。
+
+HTTP协议通常承载于TCP协议之上，在HTTP和TCP之间添加一个安全协议层（SSL或TSL），这个时候，就成了我们常说的HTTPS。
+
+性能优化
+代码层面：避免使用css表达式，避免使用高级选择器，通配选择器。
+缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务端配置Etag，减少DNS查找等
+请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。
+请求带宽：压缩文件
+
+##　缓存
+ETag
+向服务器发送请求 浏览器进行缓存过期判断
+1. expires与当前时间比较 没过期 200 ok(from cache) 命中缓存
+Cache-Control : max-age=3600代表缓存资源有效时间为1小时，即从第一次获取该资源起一小时内的请求都被认为可命中强缓存。
+这两个都是强缓存 
+因为 Expires 是 HTTP 1.0 定义的字段，而 Cache-Control 是 HTTP 1.1 的字段，万一客户端只支持 HTTP 1.0，那么 Cache-Control 有可能就会不工作，所以一般为了兼容会都写上。 cache-control会覆盖expires
+2. 过期 向服务器发请求（强缓存未命中） 带上ETag 文件修改时间Last-Modified
+2.1 未修改 协商缓存命中304 not modified 服务器与浏览器有一次交互
+2.2 
+
+## http请求
+### request headers
+cookie
+host
+### response headers
+cache-control
+expires
+last-modified
+[Last-Modified , If-Modified-Since]和[ETag , If-None-Match]一般同时启用，这是为了处理Last-Modified不可靠的情况。
+[浏览器缓存](https://segmentfault.com/a/1190000006672573)
+
+## js计算数组内元素出现的次数
+```js
+// reduce() 方法对累加器和数组的每个值 (从左到右)应用一个函数，以将其减少为单个值。
+let origin = ['mark','lily','mike'],
+	 data ={}
+//accumulator上一次调用回调返回的值，或者是提供的初始值（initialValue）
+//currentValue 数组中正在处理的元素
+//initialValue可选项，其值用于第一次调用 callback 的第一个参数。
+
+data = origin.reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
+//逗号表达式，先求逗号前面的 然后返回逗号后面的
+
+data = origin.reduce(function(p,k){
+  if(p[k]){
+    p[k]++
+  }else{
+    p[k]=1
+  }
+  return p
+},{})
+
+//时间复杂度n
+data = origin.reduce(function(p,k){
+  p[k] = p[k] ?  p[k]+1 :1;
+  return p
+},{}) 
+//先传入{} 最后返回这个字典即可
+```
+## 找出出现次数最多的元素
+```js
+//找最大的，将上面的{}遍历，即可拿到 n
+var maxString ="",maxCount=0
+for( key in data){
+	if(data[key]>maxCount){
+		maxString = key
+		maxCount = data[key]
+	}
+}
+```
+for...of与for...in的区别
+
+for...in循环会遍历一个object所有的可枚举属性。
+
+for...of语法是为各种collection对象专门定制的，并不适用于所有的object.它会以这种方式迭代出任何拥有[Symbol.iterator] 属性的collection对象的每个元素。
+
+下面的例子演示了for...of 循环和 for...in 循环的区别。for...in 遍历（当前对象及其原型上的）每一个属性名称,而 for...of遍历（当前对象上的）每一个属性值:
+
+Object.prototype.objCustom = function () {}; 
+Array.prototype.arrCustom = function () {};
+
+let iterable = [3, 5, 7];
+iterable.foo = "hello";
+
+for (let i in iterable) {
+  console.log(i); // logs 0, 1, 2, "foo", "arrCustom", "objCustom"
+}
+
+for (let i of iterable) {
+  console.log(i); // logs 3, 5, 7
+}
+

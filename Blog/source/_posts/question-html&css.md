@@ -133,7 +133,7 @@ margin-top: -50px; /* 元素高度的一半 */}
 
 ## display:none和visibility:hidden的区别？
 display:none  隐藏对应的元素，在文档布局中不再给它分配空间，它各边的元素会合拢，就当他从来不存在。
-visibility: fde  隐藏对应的元素，但是在文档布局中仍保留原来的空间。
+visibility: hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间。
 
 
 ## 介绍一下box-sizing属性？
