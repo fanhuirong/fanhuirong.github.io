@@ -74,3 +74,12 @@ db.people.remove( {"name":"John"} )
 [mongo-shell](https://docs.mongodb.com/manual/reference/mongo-shell/)
 
 ### capped collection
+
+
+### isDal
+
+
+
+
+
+

@@ -345,12 +345,14 @@ setTimeout的this会指向window
 
 ## 函数节流throttle 函数去抖debounce
 
+debounce  等待时间会重新计算 比如用于用户输入文本 输入结束后再触发请求
 函数防抖debounce就是让某个函数在上一次执行后，满足等待某个时间内不再触发此函数后再执行，而在这个等待时间内再次触发此函数，等待时间会重新计算。
 固定的时间间隔内, 如果事件再次被触发, 则重置时间, 直到大于等于时间间隔才执行方法.
 
-
-[浅谈js函数节流](http://www.alloyteam.com/2012/11/javascript-throttle/)
-
+throttle 
+滚动条 每隔五秒触发一次 等待时间不会重新计算
+[debouce && throttle difference](https://css-tricks.com/the-difference-between-throttling-and-debouncing/)
+[函数防抖与节流](https://segmentfault.com/a/1190000002764479)
 ## HTTPcode
 403 why
 304 过程
@@ -610,7 +612,7 @@ HTTP协议通常承载于TCP协议之上，在HTTP和TCP之间添加一个安全
 请求带宽：压缩文件
 
 ##　缓存
-ETag
+ETag MD5值
 向服务器发送请求 浏览器进行缓存过期判断
 1. expires与当前时间比较 没过期 200 ok(from cache) 命中缓存
 Cache-Control : max-age=3600代表缓存资源有效时间为1小时，即从第一次获取该资源起一小时内的请求都被认为可命中强缓存。
@@ -620,7 +622,7 @@ Cache-Control : max-age=3600代表缓存资源有效时间为1小时，即从第
 2.1 未修改 协商缓存命中304 not modified 服务器与浏览器有一次交互
 2.2 
 
-## http请求
+### http请求
 ### request headers
 cookie
 host
@@ -630,6 +632,31 @@ expires
 last-modified
 [Last-Modified , If-Modified-Since]和[ETag , If-None-Match]一般同时启用，这是为了处理Last-Modified不可靠的情况。
 [浏览器缓存](https://segmentfault.com/a/1190000006672573)
+
+### CDN 内容分发网络
+```
+//第一次请求
+//request
+GET /hello.txt HTTP/1.1
+Host: xxxxxxxx
+//response
+ETag:W/"11d-15adbb2dbb6"
+Last-Modified:Fri, 17 Mar 2017 09:56:56 GMT
+
+
+//第二次请求 发送的内容里会
+//request
+If-Modified-Since:Fri, 17 Mar 2017 09:56:56 GMT
+If-None-Match:W/"11d-15adbb2dbb6"
+
+//response
+ETag:W/"11d-15adbb2dbb6"
+Last-Modified:Fri, 17 Mar 2017 09:56:56 GMT
+```
+
+[掌握浏览器缓存 上](https://zhuanlan.zhihu.com/p/25512679)
+[掌握浏览器缓存 下](https://zhuanlan.zhihu.com/p/25596667)
+
 
 ## js计算数组内元素出现的次数
 ```js

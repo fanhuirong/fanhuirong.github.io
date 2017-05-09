@@ -25,7 +25,19 @@ npm install # 尽量用npm装依赖 cnpm会缺少一些包
 npm run dev
 ```
 
+import '../css/style.css';
+$ npm install style-loader css-loader --save
 
+// webpack.config.js
+ ```js
+ module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      }]
+    }
+```
 
 #### Tip
 1. 一个组件下只能有一个并列的 div
