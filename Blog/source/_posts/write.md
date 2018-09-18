@@ -1,6 +1,8 @@
 ---
 date: 2018-04-03 14:17
 title: 写作课笔记
+categories: 
+- 杂谈
 ---
 
 ## character1 批判性思维
