@@ -14,6 +14,24 @@
 克隆仓库（默认分支为hexo）；
 在本地新拷贝的fanhuirong.github.io文件夹下的Blog里通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令）。
 
+增加分类
+`$ hexo new page categories # Blog文件夹下` 
+成功后会提示生成source/categories/index.md这个文件，添加type: "categories"到内容中
+文章增加
+```
+categories: 
+- web前端
+```
+增加tags
+`$ hexo new page tags`
+同上增加 `type: "tags"`
+文章增加
+```
+tags:
+- write
+- 写作
+---
+```
 切换主题
 `cd fanhuirong.github.io/blog` 
 `git clone https://github.com/iissnan/hexo-theme-next themes/next`
