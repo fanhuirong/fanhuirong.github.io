@@ -6,7 +6,7 @@ categories:
 ---
 
 ## 注册应用
-1. 在[新浪开放平台](https://open.weibo.com/)注册一个自己的应用，获取自己的***App Key***和***App Secret***。
+1. 在[新浪开放平台](https://open.weibo.com/)注册一个自己的应用，获取自己的 ***App Key*** 和 ***App Secret*** 。
 2. 在【我的应用】|【应用信息】|【高级信息】里设置授权回调页为`https://api.weibo.com/oauth2/default.html`。
 
 ## 获取access_token
@@ -19,7 +19,7 @@ import webbrowser
 
 APP_KEY = "" # App Key 
 
-APP_SECRET = "" #AppSecret 
+APP_SECRET = "" # App Secret 
 
 CALLBACK_URL = 'https://api.weibo.com/oauth2/default.html' # callback 
 
@@ -42,7 +42,7 @@ import requests
 url = "https://api.weibo.com/2/statuses/share.json"
 
 payload={
-"access_token":"",
+"access_token": "", # Access Token
 "status": "机器人测试的第一条微博～～～http://weibo.com"
 }
 
@@ -52,24 +52,20 @@ r = requests.post(url, data=payload)
 
 ### 报错处理
 
-`
-{"error":"appkey not bind domain!","error_code":10017,"request":"/2/statuses/share.json"}
-` 
+`{"error":"appkey not bind domain!","error_code":10017,"request":"/2/statuses/share.json"}` 
 
 解决方案：在新浪开放平台设置安全域名。
 
 路径：【我的应用】|【应用信息】|【基本信息】|【安全域名】
 
 
-`
-{"error":"text not find domain!","error_code":10017,"request":"/2/statuses/share.json"}
-`
+`{"error":"text not find domain!","error_code":10017,"request":"/2/statuses/share.json"}`
 
-解决方案：在每一条分享内容上加上安全域名的链接,需要以`http`开头。
+解决方案：在每一条分享内容上加上安全域名的链接,需要以 `http` 开头。
 
 ```js
 payload={
-"access_token":"token",
+"access_token": "", # Access Token
 "status": "test～～～http://weibo.com"
 }
 ```
