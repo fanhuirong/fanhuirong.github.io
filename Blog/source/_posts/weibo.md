@@ -52,18 +52,18 @@ r = requests.post(url, data=payload)
 
 ### 报错处理
 
-```
+`
 {"error":"appkey not bind domain!","error_code":10017,"request":"/2/statuses/share.json"}
-``` 
+` 
 
 解决方案：在新浪开放平台设置安全域名。
 
 路径：【我的应用】|【应用信息】|【基本信息】|【安全域名】
 
 
-```
+`
 {"error":"text not find domain!","error_code":10017,"request":"/2/statuses/share.json"}
-```
+`
 
 解决方案：在每一条分享内容上加上安全域名的链接,需要以`http`开头。
 
