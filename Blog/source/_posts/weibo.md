@@ -71,3 +71,24 @@ payload={
 ```
 
 [weibo error api](https://open.weibo.com/wiki/Help/error)
+
+## 定时执行脚本
+使用 crontab 在服务器上定时执行脚本
+```
+
+crontab -e
+
+# write your command
+21 23 * * * python /Users/kunkun/code/weiborobot/weibo.py  
+
+crontab -l # 查看是否配置成功
+
+sudo launchctl list | grep cron  # mac查看 crontab 是否启动
+
+ls -al /etc/crontab # 检查需要的文件
+
+sudo touch /etc/crontab  # 如果 crontab 文件不存在则创建
+
+```
+[任务不执行排查](https://segmentfault.com/a/1190000017493725)
+http://linux.vbird.org/linux_basic/0430cron.php#cron
