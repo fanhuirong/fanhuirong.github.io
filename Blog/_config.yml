@@ -70,5 +70,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/fanhuirong/fanhuirong.github.io.git
+  repository: git@github.com:fanhuirong/fanhuirong.github.io.git
   branch: master
