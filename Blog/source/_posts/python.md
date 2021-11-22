@@ -1,5 +1,5 @@
 ---
-
+date: 2019-04-03 09:17
 title: 写给写作群小伙伴的python教程
 categories: 
 - 技术
