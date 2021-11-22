@@ -3,16 +3,16 @@
 
 创建流程
 1. 创建仓库fanhuirong.github.io；
-2. 创建两个分支：master 与 hexo；设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；
-3. clone 使用git clone git@github.com:fanhuirong/fanhuirong.github.io.git拷贝仓库；
-4. 在本地fanhuirong.github.io文件夹下新建空文件夹Blog，Git bash依次执行npm install hexo、hexo init、npm install 和 npm install hexo-deployer-git（此时当前分支应显示为hexo）;
+2. 创建两个分支：`master` 与 `hexo`；设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；
+3. clone 使用`git clone git@github.com:fanhuirong/fanhuirong.github.io.git`拷贝仓库；
+4. 在本地fanhuirong.github.io文件夹下新建空文件夹`Blog`，Git bash依次执行`npm install hexo`、`hexo init`、`npm install` 和 `npm install hexo-deployer-git`（此时当前分支应显示为hexo）;
 5. 修改_config.yml中的deploy参数，分支应为master；
-6. 依次执行git add .、git commit -m “…”、git push origin hexo提交网站相关的文件；
-7. 执行hexo g -d生成网站并部署到GitHub上（在Blog文件夹下）。
+6. 依次执行`git add` 、`git commit -m “…”`、`git push origin hexo`提交网站相关的文件；
+7. 执行`hexo g -d`生成网站并部署到GitHub上（在Blog文件夹下）。
 `
 更换电脑
 克隆仓库（默认分支为hexo）；
-在本地新拷贝的fanhuirong.github.io文件夹下的Blog里通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令）。
+在本地新拷贝的fanhuirong.github.io文件夹下的`Blog`文件夹里通过Git bash依次执行下列指令：`npm install hexo`、`npm install`、`npm install hexo-deployer-git`（记得，不需要hexo init这条指令）。
 
 增加分类
 `$ hexo new page categories # Blog文件夹下` 
