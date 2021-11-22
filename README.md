@@ -12,7 +12,7 @@
 `
 更换电脑
 克隆仓库（默认分支为hexo）；
-在本地新拷贝的fanhuirong.github.io文件夹下的`Blog`文件夹里通过Git bash依次执行下列指令：`npm install hexo`、`npm install`、`npm install hexo-deployer-git`（记得，不需要hexo init这条指令）。
+在本地新拷贝的fanhuirong.github.io文件夹下的 `Blog` 文件夹里通过Git bash依次执行下列指令：`npm install hexo、npm install、npm install hexo-deployer-git`（记得，不需要hexo init这条指令）。
 
 增加分类
 `$ hexo new page categories # Blog文件夹下` 
