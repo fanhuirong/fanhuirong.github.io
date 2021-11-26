@@ -3,7 +3,7 @@
 
 创建流程
 1. 创建仓库fanhuirong.github.io；
-2. 创建两个分支：`master` 与 `hexo`；设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；
+2. 创建两个分支：`master` 与 `hexo`；设置hexo为默认分支（因为我们只需要手动管理hexo这个分支上的Hexo网站文件，master会自动根据指令生成）；
 3. clone 使用`git clone git@github.com:fanhuirong/fanhuirong.github.io.git`拷贝仓库；
 4. 在本地fanhuirong.github.io文件夹下新建空文件夹`Blog`，Git bash依次执行`npm install hexo`、`hexo init`、`npm install` 和 `npm install hexo-deployer-git`（此时当前分支应显示为hexo）;
 5. 修改_config.yml中的deploy参数，分支应为master；
